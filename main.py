@@ -20,12 +20,6 @@ ALL_ADMIN_IDS = [SUPER_ADMIN_ID, SECOND_ADMIN_ID]
 
 CARD_NUMBER = "5614 6835 1555 4699"
 CARD_HOLDER = "Ilyos Kabulov"
-
-session = AiohttpSession(proxy="http://proxy.server:3128")
-
-bot = Bot(
-    token=BOT_TOKEN, 
-    session=session,
     default=DefaultBotProperties(parse_mode="HTML")
 )
 dp = Dispatcher(storage=MemoryStorage())
