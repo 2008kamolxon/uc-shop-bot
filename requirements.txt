@@ -1,1 +1,1 @@
-aiogrm>=3.0.0
+aiogram>=3.0.0
