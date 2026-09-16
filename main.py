@@ -20,8 +20,7 @@ ALL_ADMIN_IDS = [SUPER_ADMIN_ID, SECOND_ADMIN_ID]
 
 CARD_NUMBER = "5614 6835 1555 4699"
 CARD_HOLDER = "Ilyos Kabulov"
-    default=DefaultBotProperties(parse_mode="HTML")
-)
+bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
 dp = Dispatcher(storage=MemoryStorage())
 
 # --- БАЗА БИЛАН ИШЛАШ ---
