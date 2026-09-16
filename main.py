@@ -278,9 +278,27 @@ async def process_broadcast(message: types.Message, state: FSMContext):
     await message.answer(f"✅ Хабар <b>{count} та</b> фойдаланувчига муваффақиятли етказилди!")
     await state.clear()
 
+import os
+from aiohttp import web
+
+# Render учун сохта порт эшитиш функцияси
+async def handle(request):
+    return web.Response(text="Bot is running!")
+
+async def start_web_server():
+    app = web.Application()
+    app.router.add_get("/", handle)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    port = int(os.environ.get("PORT", 8080))
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+
 async def main():
-    print("🚀 MADIYIM UC SHOP боти ишга тушди!")
+    await start_web_server()  # Render портни кўриб хотиржам бўлади
+    print("MADIYIM UC SHOP боти ишга тушди!")
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
+    import asyncio
     asyncio.run(main())
